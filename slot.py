@@ -1,5 +1,6 @@
 
 import random
+# initialisation of the counters
 moneyLine1 = 0
 moneyLine2 = 0
 moneyLine3 = 0
@@ -9,6 +10,8 @@ moneyLine6 = 0
 moneyLine7 = 0
 moneyLine8 = 0
 moneyLine9 = 0
+
+# setting the money lines
 stake = 1
 win1 = 170
 win2 = 56
@@ -19,11 +22,15 @@ win6 = 10
 win7 = 4
 win8 = 2
 win9 = 1
+
+# rell symbols and reel configuration
 reelSymbols = ["bar", "cherry", "plum", "bell", "orange", "lemon"]
-reelList = []
 reel1 = [0, 1, 4, 3, 2, 0, 1, 5, 3, 2, 4, 5, 3, 2, 4, 1, 5, 0, 4, 3, 5]
 reel2 = [0, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 2, 3, 4, 5, 1]
 reel3 = [0, 4, 5, 3, 2, 4, 1, 3, 5, 4, 2, 5, 1, 4, 5, 3, 4, 5, 3, 2, 5]
+
+# the random engine
+reelList = []
 rnd1 = random.randint(0, (len(reel1)-1))
 rnd2 = random.randint(0, (len(reel2)-1))
 rnd3 = random.randint(0, (len(reel3)-1))
@@ -33,6 +40,8 @@ pick3 = reel3[rnd3]
 symbol1 = reelSymbols[pick1]
 symbol2 = reelSymbols[pick2]
 symbol3 = reelSymbols[pick3]
+
+# setting the winning based on the moneylines
 if pick1 == 0 and pick2 == 0 and pick3 == 0:
     moneyLine1 = moneyLine1+1
 if pick1 == 1 and pick2 == 1 and pick3 == 1:
@@ -51,10 +60,14 @@ if (pick1 == 1 and pick2 == 1) or (pick1 == 1 and pick3 == 1) or (pick2 == 1 and
     moneyLine8 = moneyLine8+1
 if (pick1 == 2 and pick2 == 2) or (pick1 == 2 and pick3 == 2) or (pick2 == 2 and pick3 == 2):
     moneyLine9 = moneyLine9+1
+
+# out generation
 print(symbol1, symbol2, symbol3)
 if ((moneyLine1*win1)-(moneyLine2*win2)-(moneyLine3*win3)-(moneyLine4*win4)-(moneyLine5*win5)-(moneyLine6*win6)-(moneyLine7*win7)-(moneyLine8*win8)-(moneyLine9*win9)) != 0:
     print('won ' + str(-((moneyLine1*win1)-(moneyLine2*win2)-(moneyLine3*win3)-(moneyLine4*win4) -
           (moneyLine5*win5)-(moneyLine6*win6)-(moneyLine7*win7)-(moneyLine8*win8)-(moneyLine9*win9))) + ' BTC')
+
+
 # import random
 # moneyLine1 = 0
 # moneyLine2 = 0
